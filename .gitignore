@@ -1,0 +1,15 @@
+# MkDocs build directory
+site/
+
+# Temporary files during preview
+.cache/
+
+# Python environment
+venv/
+env/
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db

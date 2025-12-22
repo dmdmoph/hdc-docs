@@ -1,0 +1,64 @@
+site_name: HDC Documentation
+site_url: https://your-username.github.io/hdc-docs/
+site_author: ICT MOPH
+
+# การตั้งค่าหน้าตา (Theme)
+theme:
+  name: material
+  language: th  # รองรับเมนูภาษาไทยและ Search ภาษาไทย
+  logo: assets/logo.png  # นำโลโก้ HDC ไปวางในโฟลเดอร์ docs/assets/
+  favicon: assets/favicon.ico
+  
+  features:
+    - navigation.tabs          # เมนูหลักด้านบน (เหมือนเว็บ HDC)
+    - navigation.sections      # แบ่งกลุ่มเมนูย่อยใน Sidebar
+    - navigation.expand        # ให้เมนูย่อยกางออกโดยอัตโนมัติ
+    - navigation.top           # ปุ่ม Back to top เมื่อเลื่อนลงล่าง
+    - navigation.tracking      # ไฮไลต์เมนูตามหน้าที่กำลังอ่าน
+    - search.suggest           # ระบบค้นหาแบบแนะนำคำ
+    - search.highlight         # ไฮไลต์คำที่ค้นหาในเนื้อหา
+    - content.code.copy        # ปุ่ม Copy โค้ด (ถ้ามีตัวอย่าง SQL)
+
+  # การตั้งค่าสีให้เข้ากับ HDC (โทนสีเขียวสาธารณสุข)
+  palette:
+    # โหมดสว่าง
+    - scheme: default
+      primary: teal            # สีเขียวอมน้ำเงิน (ใกล้เคียง HDC)
+      accent: deep orange      # สีสำหรับเน้นจุดสำคัญ
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # โหมดมืด
+    - scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+# การจัดโครงสร้างเมนู (Navigation)
+nav:
+  - หน้าแรก: index.md
+  - คู่มือการใช้งาน:
+      - การสมัครใช้งานระบบคลังข้อมูลสุขภาพ: manual/user.md
+      - การลงชื่อเข้าใช้งาน: manual/login.md
+      - การอัปโหลดข้อมูล 43 แฟ้ม: manual/upload-43-files.md
+      - การสมัครใช้เมนู Home BP: manual/home-bp.md
+  - สำหรับแอดมิน สสจ.:
+      - การอนุมัติสิทธิ์ผู้ใช้งาน: admin/admin.md
+      - การขอเข้าใช้งาน HiPPO: admin/hippo.md
+  - ติดต่อเรา: about.md
+
+# ปลั๊กอินเสริม
+plugins:
+  - search
+
+# การตั้งค่า Markdown เพิ่มเติม (เพื่อให้เขียนได้สวยขึ้น)
+markdown_extensions:
+  - admonition          # กล่องข้อความแจ้งเตือน (Note, Warning)
+  - pymdownx.details    # เมนูแบบพับเก็บได้
+  - pymdownx.superfences # รองรับแผนภูมิ Mermaid.js
+  - attr_list           # ปรับแต่งขนาดรูปภาพได้
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
