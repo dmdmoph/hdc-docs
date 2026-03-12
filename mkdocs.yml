@@ -44,6 +44,7 @@ nav:
       - การลงชื่อเข้าใช้งาน: manual/login.md
       - การอัปโหลดข้อมูล 43 แฟ้ม: manual/upload-43-files.md
       - การสมัครใช้เมนู Home BP: manual/home-bp.md
+      - การส่งแฟ้ม DATA_CORRECT: manual/data-correct.md
   - สำหรับแอดมิน สสจ.:
       - การอนุมัติสิทธิ์ผู้ใช้งาน: admin/admin.md
       - การขอเข้าใช้งาน HiPPO: admin/hippo.md
