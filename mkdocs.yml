@@ -46,6 +46,7 @@ nav:
       - การสมัครใช้เมนู Home BP: manual/home-bp.md
       - การส่งแฟ้ม DATA_CORRECT: manual/data-correct.md
   - สำหรับแอดมิน สสจ.:
+      - การขึ้นทะเบียนผู้ดูแลระบบ (Admin HDC สสจ.): admin/admin-heidi.md
       - การอนุมัติสิทธิ์ผู้ใช้งาน: admin/admin.md
       - การขอเข้าใช้งาน HiPPO: admin/hippo.md
   - ติดต่อเรา: about.md
