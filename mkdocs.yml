@@ -48,7 +48,7 @@ nav:
       - การขึ้นทะเบียนผู้ดูแลระบบ (Admin HDC สสจ.): admin/admin-heidi.md
       - การอนุมัติสิทธิ์ผู้ใช้งาน: admin/admin.md
       - การขอเข้าใช้งาน HiPPO: admin/hippo.md
-#  - ติดต่อเรา: about.md
+  - ติดต่อเรา: about.md
 
 # ปลั๊กอินเสริม
 plugins:
