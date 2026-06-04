@@ -38,7 +38,7 @@ theme:
 
 # การจัดโครงสร้างเมนู (Navigation)
 nav:
-  - หน้าแรก: index.md
+#  - หน้าแรก: index.md
   - คู่มือการใช้งาน:
       - การสมัครใช้งานระบบคลังข้อมูลสุขภาพ: manual/user.md
       - การอัปโหลดข้อมูล 43 แฟ้ม: manual/upload-43-files.md
@@ -48,7 +48,7 @@ nav:
       - การขึ้นทะเบียนผู้ดูแลระบบ (Admin HDC สสจ.): admin/admin-heidi.md
       - การอนุมัติสิทธิ์ผู้ใช้งาน: admin/admin.md
       - การขอเข้าใช้งาน HiPPO: admin/hippo.md
-  - ติดต่อเรา: about.md
+#  - ติดต่อเรา: about.md
 
 # ปลั๊กอินเสริม
 plugins:
