@@ -6,7 +6,7 @@ site_author: ICT MOPH
 theme:
   name: material
   language: th  # รองรับเมนูภาษาไทยและ Search ภาษาไทย
-  logo: assets/logo.png  # นำโลโก้ HDC ไปวางในโฟลเดอร์ docs/assets/
+  logo: assets/white-logo.png  # นำโลโก้ HDC ไปวางในโฟลเดอร์ docs/assets/
   favicon: assets/favicon.ico
   
   features:
