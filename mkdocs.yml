@@ -41,6 +41,7 @@ nav:
   - หน้าแรก: index.md
   - คู่มือการใช้งาน:
       - การสมัครใช้งานระบบคลังข้อมูลสุขภาพ: manual/user.md
+      - การขอเพิ่มสิทธิ์การใช้งาน: manual/add-rights.md
       - การอัปโหลดข้อมูล 43 แฟ้ม: manual/upload-43-files.md
       - การสมัครใช้เมนู Home BP: manual/home-bp.md
       - การส่งแฟ้ม DATA_CORRECT: manual/data-correct.md
