@@ -1,0 +1,1513 @@
+
+<!doctype html>
+<html lang="th" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ICT MOPH">
+      
+      
+        <link rel="canonical" href="https://dmdmoph.github.io/hdc-docs/manual/api-43-files/">
+      
+      
+        <link rel="prev" href="../upload-43-files/">
+      
+      
+        <link rel="next" href="../home-bp/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>การส่งข้อมูล 43 แฟ้มผ่าน API - HDC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#43-api" class="md-skip">
+          ข้ามไปที่เนื้อหา
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="หัวข้อ">
+    <a href="../.." title="HDC Documentation" class="md-header__button md-logo" aria-label="HDC Documentation" data-md-component="logo">
+      
+  <img src="../../assets/white-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HDC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              การส่งข้อมูล 43 แฟ้มผ่าน API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="ค้นหา" placeholder="ค้นหา" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="ค้นหา">
+        
+        <button type="reset" class="md-search__icon md-icon" title="ล้าง" aria-label="ล้าง" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            กำลังเริ่มต้นการค้นหา
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="แท็บ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  หน้าแรก
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../user/" class="md-tabs__link">
+          
+  
+  
+  คู่มือการใช้งาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../admin/admin-heidi/" class="md-tabs__link">
+          
+  
+  
+  สำหรับแอดมิน สสจ.
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ติดต่อเรา
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ตัวนำทาง" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HDC Documentation" class="md-nav__button md-logo" aria-label="HDC Documentation" data-md-component="logo">
+      
+  <img src="../../assets/white-logo.png" alt="logo">
+
+    </a>
+    HDC Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    หน้าแรก
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    คู่มือการใช้งาน
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    คู่มือการใช้งาน
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การสมัครใช้งานระบบคลังข้อมูลสุขภาพ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-rights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การขอเพิ่มสิทธิ์การใช้งาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upload-43-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การอัปโหลดข้อมูล 43 แฟ้ม
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การส่งข้อมูล 43 แฟ้มผ่าน API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การส่งข้อมูล 43 แฟ้มผ่าน API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="สารบัญ">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      สารบัญ
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ภาพรวมขั้นตอน
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 1: เปิดเมนูสร้างคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 2: กดปุ่มสร้างคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 3: คัดลอกและเก็บรักษาคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 4: ส่งไฟล์ผ่าน API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ขั้นที่ 4: ส่งไฟล์ผ่าน API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        รายละเอียดการเชื่อมต่อ (API Endpoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างคำสั่งบน macOS หรือ Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-command-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างคำสั่งบน Windows (Command Prompt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        วิธีแก้ไขคำสั่งก่อนนำไปใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างการส่งด้วย Python (แบบไม่สร้างไฟล์ลงเครื่อง)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ตัวอย่างการส่งด้วย Python (แบบไม่สร้างไฟล์ลงเครื่อง)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ติดตั้งไลบรารี (ทำครั้งเดียว)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload43py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. โค้ดโปรแกรม (upload43.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. วิธีสั่งรันโปรแกรม
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ข้อสังเกตเพิ่มเติมสำหรับนักพัฒนา
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 5: ตรวจสอบผลการส่งและการแก้ไขปัญหา
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        สรุปข้อควรจำ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home-bp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การสมัครใช้เมนู Home BP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DATA CORRECT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DATA CORRECT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-correct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การส่งแฟ้ม DATA_CORRECT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/pdf/datacorrect_v1.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Correct Tool v1.0.0.030769
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    สำหรับแอดมิน สสจ.
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    สำหรับแอดมิน สสจ.
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/admin-heidi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การขึ้นทะเบียนผู้ดูแลระบบ (Admin HDC สสจ.)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การอนุมัติสิทธิ์ผู้ใช้งาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/hippo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การขอเข้าใช้งาน HiPPO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ติดต่อเรา
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="สารบัญ">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      สารบัญ
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ภาพรวมขั้นตอน
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 1: เปิดเมนูสร้างคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 2: กดปุ่มสร้างคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 3: คัดลอกและเก็บรักษาคีย์
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 4: ส่งไฟล์ผ่าน API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ขั้นที่ 4: ส่งไฟล์ผ่าน API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        รายละเอียดการเชื่อมต่อ (API Endpoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างคำสั่งบน macOS หรือ Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-command-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างคำสั่งบน Windows (Command Prompt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        วิธีแก้ไขคำสั่งก่อนนำไปใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตัวอย่างการส่งด้วย Python (แบบไม่สร้างไฟล์ลงเครื่อง)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ตัวอย่างการส่งด้วย Python (แบบไม่สร้างไฟล์ลงเครื่อง)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ติดตั้งไลบรารี (ทำครั้งเดียว)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload43py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. โค้ดโปรแกรม (upload43.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. วิธีสั่งรันโปรแกรม
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ข้อสังเกตเพิ่มเติมสำหรับนักพัฒนา
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ขั้นที่ 5: ตรวจสอบผลการส่งและการแก้ไขปัญหา
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        สรุปข้อควรจำ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="43-api">การส่งข้อมูล 43 แฟ้มผ่าน API</h1>
+<p>สำหรับหน่วยบริการที่ต้องการส่งไฟล์ 43 แฟ้มเข้าสู่ระบบ HDC โดยใช้คำสั่ง (Command Line / Script) แทนการอัปโหลดผ่านหน้าเว็บไซต์</p>
+<h2 id="_1">ภาพรวมขั้นตอน</h2>
+<ol>
+<li><strong>สร้างคีย์ (API Key)</strong> จากหน้าเว็บไซต์ HDC</li>
+<li><strong>คัดลอกคีย์</strong> ไปเก็บรักษาไว้ในที่ปลอดภัย</li>
+<li><strong>เรียกใช้งาน API</strong> โดยใช้คีย์เพื่อส่งไฟล์ <code>.zip</code> ข้อมูล 43 แฟ้ม</li>
+</ol>
+<hr />
+<h2 id="1">ขั้นที่ 1: เปิดเมนูสร้างคีย์</h2>
+<p>เข้าสู่ระบบ HDC ตามปกติ จากนั้นคลิกที่ <strong>ชื่อผู้ใช้งาน</strong> บริเวณมุมขวาบน แล้วเลือกเมนู <strong>สร้างคีย์</strong></p>
+<p><img alt="เมนูสร้างคีย์" src="../../assets/api-create-menu.png" /></p>
+<hr />
+<h2 id="2">ขั้นที่ 2: กดปุ่มสร้างคีย์</h2>
+<p>ในหน้า <strong>สร้างคีย์สำหรับเข้าใช้งานระบบ</strong> ให้คลิกปุ่ม <strong>สร้างคีย์</strong> บริเวณมุมขวาบน</p>
+<p><img alt="ปุ่มสร้างคีย์" src="../../assets/api-create-btn.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">ข้อควรระวังสำคัญ</p>
+<p>คีย์จะแสดงให้เห็นเพียงครั้งเดียวตอนที่กดสร้างเท่านั้น หากออกจากหน้านี้ไปแล้วจะไม่สามารถกลับมาดูคีย์เดิมได้อีก กรณีที่ลืมคีย์จำเป็นต้องกดสร้างคีย์ใหม่ ซึ่งจะส่งผลให้คีย์เก่าถูกยกเลิกและใช้งานไม่ได้ทันที</p>
+</div>
+<hr />
+<h2 id="3">ขั้นที่ 3: คัดลอกและเก็บรักษาคีย์</h2>
+<p>เมื่อระบบสร้างคีย์เสร็จสิ้น รหัสคีย์จะแสดงในกรอบ <strong>คีย์ที่สร้างได้</strong> ให้คลิกปุ่ม <strong>คัดลอกคีย์</strong> แล้วนำไปบันทึกเก็บไว้ในที่ปลอดภัยทันที</p>
+<p><img alt="การคัดลอกคีย์และประวัติการสร้าง" src="../../assets/api-create-key.png" /></p>
+<ul>
+<li><strong>อายุการใช้งาน:</strong> ด้านล่างจะมีตาราง <strong>ประวัติการสร้างคีย์</strong> แสดงวันที่สร้าง วันหมดอายุ และสถานะ โดยคีย์จะมีอายุการใช้งานประมาณ <strong>3 เดือน</strong> (เช่น สร้างวันที่ <code>21/10/2026</code> จะหมดอายุวันที่ <code>21/01/2027</code>) เมื่อใกล้ครบกำหนดให้เข้ามาสร้างคีย์ใหม่</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">การรักษาความปลอดภัย</p>
+<p>ห้ามส่งคีย์ให้ผู้อื่น ห้ามโพสต์ลงในกลุ่มแชท และห้ามบันทึกไว้ในไฟล์ที่บุคคลอื่นสามารถเปิดอ่านได้ เนื่องจากผู้ที่มีคีย์จะสามารถส่งข้อมูลเข้าสู่ระบบในนามหน่วยบริการของท่านได้ทันที</p>
+</div>
+<hr />
+<h2 id="4-api">ขั้นที่ 4: ส่งไฟล์ผ่าน API</h2>
+<h3 id="api-endpoint">รายละเอียดการเชื่อมต่อ (API Endpoint)</h3>
+<ul>
+<li><strong>URL:</strong> <code>https://api-center-hdc.moph.go.th/v1/api/upload/upload43</code></li>
+<li><strong>Method:</strong> <code>POST</code></li>
+<li><strong>Header:</strong> <code>Authorization: Bearer &lt;คีย์ของท่าน&gt;</code></li>
+<li><strong>รูปแบบข้อมูล (Content-Type):</strong> <code>multipart/form-data</code></li>
+<li><strong>ชื่อฟิลด์ไฟล์ (Field Name):</strong> <code>files</code></li>
+<li><strong>ไฟล์ที่ส่ง:</strong> ไฟล์ <code>.zip</code> มาตรฐาน 43 แฟ้มที่ส่งออกจากโปรแกรมของหน่วยบริการ (เช่น <code>F43_12345_25690101120000_1700000000000.zip</code>)</li>
+</ul>
+<h3 id="macos-linux">ตัวอย่างคำสั่งบน macOS หรือ Linux</h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="o">[</span>https://api-center-hdc.moph.go.th/v1/api/upload/upload43<span class="o">](</span>https://api-center-hdc.moph.go.th/v1/api/upload/upload43<span class="o">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Content-Type: multipart/form-data'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--form<span class="w"> </span><span class="nv">files</span><span class="o">=</span>@/Users/name-u/Downloads/F43_12345_25690101120000_1700000000000.zip
+</code></pre></div>
+<h3 id="windows-command-prompt">ตัวอย่างคำสั่งบน Windows (Command Prompt)</h3>
+<div class="highlight"><pre><span></span><code>curl --request POST ^
+  --url [https://api-center-hdc.moph.go.th/v1/api/upload/upload43](https://api-center-hdc.moph.go.th/v1/api/upload/upload43) ^
+  --header "Authorization: Bearer YOUR_API_KEY" ^
+  --header "Content-Type: multipart/form-data" ^
+  --form files=@C:\Users\name-u\Downloads\F43_12345_25690101120000_1700000000000.zip
+</code></pre></div>
+<h3 id="_2">วิธีแก้ไขคำสั่งก่อนนำไปใช้งาน</h3>
+<ol>
+<li>แทนที่คำว่า <code>YOUR_API_KEY</code> ด้วยคีย์ที่คัดลอกไว้ในขั้นที่ 3 (ต้องเว้นวรรค 1 เคาะหลังคำว่า <code>Bearer</code>)</li>
+<li>แก้ไขที่อยู่ไฟล์ (Path) หลังเครื่องหมาย <code>@</code> ให้ตรงกับตำแหน่งไฟล์ <code>.zip</code> ในเครื่องของท่าน</li>
+<li>หากชื่อโฟลเดอร์หรือที่อยู่ไฟล์มีช่องว่าง (Space) ให้ใส่เครื่องหมายคำพูด (<code>"..."</code>) ครอบทั้งค่า เช่น <code>--form "files=@C:\My Files\F43.zip"</code></li>
+</ol>
+<hr />
+<h2 id="python">ตัวอย่างการส่งด้วย Python (แบบไม่สร้างไฟล์ลงเครื่อง)</h2>
+<p>เหมาะสำหรับระบบอัตโนมัติที่ดึงข้อมูลจากฐานข้อมูลแล้วส่งต่อทันที โดยตัวโปรแกรมจะบีบอัดสร้างไฟล์ <code>.zip</code> ไว้ในหน่วยความจำ (In-Memory) แล้วส่งขึ้น API โดยตรง ทำให้ไม่มีไฟล์ตกค้างในเครื่องเซิร์ฟเวอร์</p>
+<h3 id="1_1">1. ติดตั้งไลบรารี (ทำครั้งเดียว)</h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>requests
+</code></pre></div>
+<h3 id="2-upload43py">2. โค้ดโปรแกรม (<code>upload43.py</code>)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">"[https://api-center-hdc.moph.go.th/v1/api/upload/upload43](https://api-center-hdc.moph.go.th/v1/api/upload/upload43)"</span>
+
+<span class="c1"># อ่านคีย์จาก Environment Variable เพื่อความปลอดภัย (ไม่ควรเขียนคีย์ไว้ในโค้ดโดยตรง)</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"HDC_API_KEY"</span><span class="p">]</span>
+
+<span class="c1"># ข้อมูลแต่ละแฟ้ม (ในงานจริงให้ดึงข้อมูลจากฐานข้อมูลของหน่วยบริการ)</span>
+<span class="c1"># ตัวอย่างนี้เป็นข้อมูลสมมติ</span>
+<span class="n">files_43</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"PERSON.txt"</span><span class="p">:</span> <span class="s2">"HOSPCODE|CID|PID|...</span><span class="se">\n</span><span class="s2">12345|1111111111111|1|...</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+    <span class="s2">"SERVICE.txt"</span><span class="p">:</span> <span class="s2">"HOSPCODE|PID|SEQ|...</span><span class="se">\n</span><span class="s2">12345|1|1|...</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># สร้างไฟล์ zip ในหน่วยความจำ (Memory Buffer)</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">files_43</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">zf</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+<span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># ชื่อไฟล์ zip ที่จะแจ้งให้ระบบทราบ (ใช้รูปแบบเดียวกับไฟล์ที่ส่งออกจากโปรแกรม)</span>
+<span class="n">zip_name</span> <span class="o">=</span> <span class="s2">"F43_12345_25690101120000_1700000000000.zip"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="n">API_URL</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
+    <span class="n">files</span><span class="o">=</span><span class="p">{</span><span class="s2">"files"</span><span class="p">:</span> <span class="p">(</span><span class="n">zip_name</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="s2">"application/zip"</span><span class="p">)},</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3_1">3. วิธีสั่งรันโปรแกรม</h3>
+<p><strong>บน macOS หรือ Linux:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">HDC_API_KEY</span><span class="o">=</span><span class="s2">"YOUR_API_KEY"</span>
+python<span class="w"> </span>upload43.py
+</code></pre></div>
+<p><strong>บน Windows (Command Prompt):</strong></p>
+<div class="highlight"><pre><span></span><code>set HDC_API_KEY=YOUR_API_KEY
+python upload43.py
+</code></pre></div>
+<h3 id="_3">ข้อสังเกตเพิ่มเติมสำหรับนักพัฒนา</h3>
+<ul>
+<li><strong>Header <code>Content-Type</code>:</strong> ไม่ต้องกำหนดค่าเอง เนื่องจากไลบรารี <code>requests</code> จะสร้าง <code>multipart/form-data</code> พร้อมตั้งค่า <code>boundary</code> ให้อัตโนมัติเมื่อส่งผ่านพารามิเตอร์ <code>files=</code></li>
+<li><strong>ชื่อฟิลด์:</strong> ต้องระบุเป็น <code>"files"</code> เหมือนกับในคำสั่ง <code>curl</code></li>
+<li><strong>กรณีมีข้อมูลเป็น Bytes อยู่แล้ว:</strong> หากรับไฟล์ <code>.zip</code> มาจากระบบอื่นในรูปแบบ <code>bytes</code> ในหน่วยความจำแล้ว สามารถข้ามขั้นตอนการสร้าง <code>zipfile</code> และส่ง <code>io.BytesIO(ข้อมูล_bytes)</code> แทนตัวแปร <code>buffer</code> ได้ทันที</li>
+<li><strong>โครงสร้างข้อมูล:</strong> รูปแบบข้อมูลในแต่ละแฟ้มต้องยึดตามโครงสร้างมาตรฐาน 43 แฟ้มฉบับที่ใช้งานอยู่ (โค้ดด้านบนเป็นการย่อเพื่อให้เข้าใจง่ายเท่านั้น)</li>
+</ul>
+<hr />
+<h2 id="5">ขั้นที่ 5: ตรวจสอบผลการส่งและการแก้ไขปัญหา</h2>
+<p>หลังจากสั่งรันคำสั่ง ระบบจะแสดงผลลัพธ์ตอบกลับทางหน้าจอ ให้ตรวจสอบข้อความหรือรหัสสถานะ (HTTP Status Code) เพื่อยืนยันว่าส่งไฟล์สำเร็จ</p>
+<ul>
+<li><strong>ไม่มีสิทธิ์เข้าถึง (<code>401</code> หรือ <code>403</code>):</strong> เกิดจากคีย์ไม่ถูกต้อง คีย์หมดอายุ หรือมีการกดสร้างคีย์ใหม่ทำให้คีย์เก่าถูกยกเลิก ให้ตรวจสอบความถูกต้องของคีย์ หรือทำการสร้างคีย์ใหม่</li>
+<li><strong>แจ้งเตือนว่าหาไฟล์ไม่เจอ:</strong> ที่อยู่ไฟล์ (Path) หลังเครื่องหมาย <code>@</code> ไม่ถูกต้อง ให้ตรวจสอบชื่อโฟลเดอร์และชื่อไฟล์อีกครั้ง (ระวังเรื่องช่องว่างในชื่อโฟลเดอร์)</li>
+<li><strong>ไม่พบคำสั่ง <code>curl</code>:</strong> ระบบปฏิบัติการ Windows 10 ขึ้นไปจะมีคำสั่ง <code>curl</code> ติดตั้งมาให้พร้อมใช้งานแล้ว หากเป็น Windows รุ่นเก่ากว่าจำเป็นต้องดาวน์โหลดและติดตั้งเพิ่มเติม</li>
+</ul>
+<hr />
+<h2 id="_4">สรุปข้อควรจำ</h2>
+<ul>
+<li><strong>คีย์ดูได้เพียงครั้งเดียว</strong> ต้องกดคัดลอกและบันทึกเก็บไว้ทันทีหลังสร้าง</li>
+<li><strong>เมื่อสร้างคีย์ใหม่ คีย์เก่าจะถูกยกเลิกทันที</strong> ต้องนำไปอัปเดตเปลี่ยนคีย์ในทุกเครื่องหรือทุกสคริปต์ที่ใช้ส่งข้อมูล</li>
+<li><strong>คีย์มีวันหมดอายุ</strong> สามารถตรวจสอบวันหมดอายุได้จากตาราง <strong>ประวัติการสร้างคีย์</strong></li>
+<li><strong>เก็บรักษาคีย์ไว้เป็นความลับ</strong> ห้ามส่งต่อหรือเผยแพร่ให้บุคคลอื่นโดยเด็ดขาด</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  กลับไปด้านบนสุด
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e41\u0e25\u0e49\u0e27", "clipboard.copy": "\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01", "search.result.more.one": "\u0e2d\u0e35\u0e01\u0e2b\u0e19\u0e36\u0e48\u0e07\u0e43\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49", "search.result.more.other": "# \u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49", "search.result.none": "\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.one": "\u0e1e\u0e1a\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.other": "\u0e1e\u0e1a # \u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e17\u0e35\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e19", "search.result.placeholder": "\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e04\u0e49\u0e19\u0e2b\u0e32", "search.result.term.missing": "\u0e44\u0e21\u0e48\u0e1e\u0e1a", "select.version": "\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../javascripts/custom.js"></script>
+      
+    
+  </body>
+</html>
